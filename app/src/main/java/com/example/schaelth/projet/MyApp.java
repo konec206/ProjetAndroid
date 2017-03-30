@@ -1,10 +1,9 @@
 package com.example.schaelth.projet;
 
 import com.example.schaelth.projet.model.Personne;
-import com.example.schaelth.projet.model.PersonneDAO;
 import com.example.schaelth.projet.model.Question;
-import com.example.schaelth.projet.model.QuestionDAO;
 import com.example.schaelth.projet.model.Util;
+import com.example.schaelth.projet.model.Classement;
 import com.orm.SugarApp;
 
 /**
@@ -15,18 +14,22 @@ public class MyApp extends SugarApp {
     private Personne user;
     private Personne admin;
     private Util util;
+    private Classement classement;
 
     @Override
     public void onCreate() {
         super.onCreate();
-        admin = new Personne("admin", "root");
-        util = new Util();
-
-        if (Personne.count(Personne.class, "nom = ? and prenom = ?", new String[] {"admin", "root"}) == 0) {
-            new Personne("admin", "root").save();
-        }
 
         // my stuff
+        admin = new Personne("admin", "root", 0);
+        util = new Util();
+        classement = new Classement();
+
+        user = new Personne();
+        if (Personne.count(Personne.class, "nom = ? and prenom = ?", new String[] {"admin", "root"}) == 0) {
+            new Personne("admin", "root", 0).save();
+        }
+
         if (Question.count(Question.class) == 0) {
             util.initDb();
         }
@@ -59,5 +62,13 @@ public class MyApp extends SugarApp {
 
     public void setUtil(Util util) {
         this.util = util;
+    }
+
+    public Classement getClassement() {
+        return classement;
+    }
+
+    public void setClassement(Classement classement) {
+        this.classement = classement;
     }
 }

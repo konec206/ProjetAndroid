@@ -42,7 +42,7 @@ public class ExerciceMathActivity extends AppCompatActivity implements View.OnCl
         message = new TextView(getApplicationContext());
         message.setText("A toi de jouer!");
         message.setTextSize(15);
-        message.setTextColor(Color.BLACK);
+        message.setTextColor(Color.argb(255, 255, 255, 255));
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
             message.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
         }
@@ -51,13 +51,13 @@ public class ExerciceMathActivity extends AppCompatActivity implements View.OnCl
         layout = (LinearLayout) findViewById(R.id.linearMath2);
         question = new TextView(getApplicationContext());
         reponse = new EditText(getApplicationContext());
-        reponse.setTextColor(Color.BLACK);
+        reponse.setTextColor(Color.argb(255, 255, 255, 255));
         subLayout = new LinearLayout(getApplicationContext());
         subLayout.setOrientation(LinearLayout.HORIZONTAL);
 
         exerciceMath.generateCalcul();
         question.setText(exerciceMath.generateLigneCalcul());
-        question.setTextColor(Color.BLACK);
+        question.setTextColor(Color.argb(255, 255, 255, 255));
         question.setTextSize(20);
 
         subLayout.addView(question);
@@ -75,27 +75,36 @@ public class ExerciceMathActivity extends AppCompatActivity implements View.OnCl
     public void onClick(View v) {
         nbCoupsJoues++;
         if (nbCoupsJoues <= nbCoups) {
-            if (!reponse.getText().toString().equals("") && exerciceMath.verifierCalcul(Integer.parseInt(reponse.getText().toString()))) {
-                message.setText("Bravo tu as trouvé la bonne réponse !");
-                message.setTextColor(Color.GREEN);
+            try {
+                if (!reponse.getText().toString().equals("") && exerciceMath.verifierCalcul(Integer.parseInt(reponse.getText().toString()))) {
+                    message.setText("Bravo tu as trouvé la bonne réponse !");
+                    message.setTextColor(Color.GREEN);
 
-                int var = exerciceMath.getBonnesReponses();
-                exerciceMath.setBonnesReponses(var++);
-            } else {
-                message.setText("Ce n'est pas la bonne réponse : " + exerciceMath.generateBonneReponse());
-                message.setTextColor(Color.RED);
+                   /*int var = exerciceMath.getBonnesReponses();
+                    exerciceMath.setBonnesReponses(var++);*/
+                } else {
+                    message.setText("Ce n'est pas la bonne réponse : " + exerciceMath.generateBonneReponse());
+                    message.setTextColor(Color.RED);
 
-                int var = exerciceMath.getMauvaisesReponses();
-                exerciceMath.setMauvaisesReponses(var++);
+                    /*int var = exerciceMath.getMauvaisesReponses();
+                    exerciceMath.setMauvaisesReponses(var++);*/
+                }
+
+                exerciceMath.generateCalcul();
+                question.setText(exerciceMath.generateLigneCalcul());
+                reponse.setText("");
+            } catch (NumberFormatException e) {
+                message.setText("Attention tu dois rentrer un chiffre ou un nombre dans le cadre de réponse!");
+                message.setTextColor(Color.argb(255, 255, 255, 255));
             }
-
-            exerciceMath.generateCalcul();
-            question.setText(exerciceMath.generateLigneCalcul());
-            reponse.setText("");
         } else {
             Intent intent = new Intent(this, ResultatActivity.class);
+            if (exerciceMath.getBonnesReponses() == 0) {
+                exerciceMath.setMauvaisesReponses(nbCoups);
+            }
             intent.putExtra(ACTIVITY_RESULTAT_BONNE_REPONSE, exerciceMath.getBonnesReponses());
             intent.putExtra(ACTIVITY_RESULTAT_MAUVAISE_REPONSE, exerciceMath.getMauvaisesReponses());
+
             startActivity(intent);
         }
     }

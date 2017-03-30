@@ -15,6 +15,7 @@ public class Util {
     }
 
     public void initDb() {
+        //Questions d'histoire
         new Question("De quelle couleurs est le cheval blanc d'Henry 4?", "blanc", "noir", "bleu", "histoire").save();
         new Question("Quel Louis a perdu la tête pendant la révolution française?", "Louis 16", "Louis 14", "Louis 18", "histoire").save();
         new Question("Qui était Lucy?", "Une femme préhistorique", "Un film", "Une copine de l'école", "histoire").save();
@@ -28,17 +29,32 @@ public class Util {
         new Question("Où se trouve la grande muraille?", "En Chine", "En Allemagne", "En Russie", "histoire").save();
         new Question("Comment s'appelle l'hymne français?", "La Marsaillaise", "Tchikita", "La chansons des partisans", "histoire").save();
 
-        new Question("De quelle couleurs est le cheval blanc d'Henry 4?", "blanc", "noir", "bleu", "francais").save();
-        new Question("Quel Louis a perdu la tête pendant la révolution française?", "16", "14", "18", "francais").save();
-        new Question("Quel est la réponse de l'univers?", "42", "25", "Moi", "francais").save();
-        new Question("Qui a été le président intérimaire français pendant la seconde guerre mondiale?", "Pétain", "Hollande", "De Gaule", "francais").save();
-        new Question("Répond 1.", "1", "2", "3", "francais").save();
-        new Question("Répond 2.", "2", "4", "3", "francais").save();
-        new Question("Répond 3.", "3", "6", "3", "francais").save();
-        new Question("Répond 4.", "4", "2", "3", "francais").save();
-        new Question("Répond 5.", "5", "2", "3", "francais").save();
-        new Question("Répond 6.", "6", "2", "3", "francais").save();
-        new Question("Répond 7.", "7", "2", "3", "francais").save();
-        new Question("Répond 8.", "8", "2", "3", "francais").save();
+        //Questions de français
+        new Question("Quel est le groupe du verbe voir?", "3e", "2e", "1e", "francais").save();
+        new Question("Cochez la proposition qui présente une erreur.", "Il la pris dans sa main", "Il l'a pris dans sa main", "Il la prit dans sa main", "francais").save();
+        new Question("Une seule de ces formes verbales est fausse, laquelle ?", "Il mourait", "Il mourrut", "Il mourait", "francais").save();
+        new Question("\"Echarpe\" et \"écharde\"; \"croasser et \"coasser\" sont des …", "Homonymes", "Synonymes", "Paronymes", "francais").save();
+        new Question("Les déterminants accompagnent des :", "Noms", "Verbes", "Adjectifs", "francais").save();
+        new Question("Parmi les déterminants suivants, lesquels sont des déterminants démonstratifs ?", "Ce - cet - cette - ces", "Un - une - des", "Nos, vos, leurs", "francais").save();
+        new Question("'Ce n'est pas bientôt fini ___', a crié le professeur.", "?", "!", ".", "francais").save();
+        new Question("'Tu manges beaucoup trop de bonbons ___', s'exclama la mère de Coline.", "!", "?", ".", "francais").save();
+        new Question("Est-ce que ça mord ___", "?", "!", "...", "francais").save();
+        new Question("Ne fais pas de bruit en t'approchant du bord ___", ".", "!", "?", "francais").save();
+        new Question("Parmi, les suivantes, laquelle est une phrase déclarative ?", "Vous passerez de longues heures au bord de l'eau.", "Vous verrez, ce lac est magnifique !", "Restez loin du bord.", "francais").save();
+        new Question("Parmi, les suivantes, laquelle est une phrase interrogative ?", "Est-ce que 'La Petite Sirène' est un conte d'Andersen ?", "'La Petite Sirène' est un conte d'Andersen.", "Lis ce conte écrit par Andersen : 'La Petite Sirène'.", "francais").save();
+
+        //Question de culture Générale
+        new Question("Comment la mère de Bart Simpson se prénomme-t-elle?", "Marge", "Maggie", "Homer", "cultureG").save();
+        new Question("Combien de chromosomes chaque individu possède-t-il, normalement?", "46", "23", "56", "cultureG").save();
+        new Question("Auquel de ces termes associe-t-on l'IVG?", "Avortement", "Souci", "Manger", "cultureG").save();
+        new Question("Qui a écrit 'Le Fils naturel'?", "Diderot", "Voltaire", "Rousseau", "cultureG").save();
+        new Question("Laquelle de ces plantes est liée au 1er mai?", " Le muguet", "Les orties", "La rose", "cultureG").save();
+        new Question("Comment dit-on 'lundi' en allemand?", "Montag", "Dienstag", "Mittwoch", "cultureG").save();
+        new Question("Duquel de ces handicaps le professeur Tournesol est-il victime?", "La surdité", "La cécité", "Le mutisme", "cultureG").save();
+        new Question("À laquelle de ces couleurs associe-t-on le magenta?", "Le rose foncé", "Le bleu", "Le vert clair", "cultureG").save();
+        new Question("Quel groupe nous chantait 'Let It Be', à l'origine?", "Les Beatles", "Vox Angeli", "Kids United", "cultureG").save();
+        new Question("Qui est Iolanda Cristina Gigliotti?", "Dalida", "Jenifer", "Louane", "cultureG").save();
+        new Question("Comment s'appelle le chien de Tintin ?", "Milou", "Igor", "Lucky", "cultureG").save();
+        new Question("Parmi ces marques de voitures, laquelle est française ?", "Renault", "Porsche", "Audi", "cultureG").save();
     }
 }

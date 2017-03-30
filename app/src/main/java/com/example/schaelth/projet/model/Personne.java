@@ -11,13 +11,16 @@ public class Personne extends SugarRecord {
     private String nom;
     private String prenom;
 
+    private int score;
+
     /* SUGARORM : OBLIGATOIRE */
     public Personne(){
     }
 
-    public Personne(String nom, String prenom){
+    public Personne(String nom, String prenom, int score){
         setNom(nom);
         setPrenom(prenom);
+        setScore(score);
     }
 
     public String getNom() {
@@ -40,4 +43,13 @@ public class Personne extends SugarRecord {
     public String toString() {
         return getPrenom() + " " + getNom();
     }
+
+    public int getScore() {
+        return score;
+    }
+
+    public void setScore(int score) {
+        this.score = score;
+    }
+
 }

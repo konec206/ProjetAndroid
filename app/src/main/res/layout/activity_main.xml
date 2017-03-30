@@ -4,32 +4,46 @@
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorAccent"
+    android:orientation="vertical"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:orientation="vertical"
     android:weightSum="1">
 
     <Button
-        android:text="Inscris-toi!"
+        android:id="@+id/buttonSinscrire"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/buttonSinscrire" />
+        android:background="@android:color/holo_blue_dark"
+        android:layout_marginTop="10dp"
+        android:text="Inscris-toi!" />
 
     <Button
-        android:text="Connectes-toi!"
+        android:id="@+id/buttonConnexion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/buttonConnexion" />
+        android:layout_marginTop="10dp"
+        android:background="@android:color/holo_orange_dark"
+        android:text="Connectes-toi!" />
 
     <Space
         android:layout_width="match_parent"
         android:layout_height="100dp" />
 
     <Button
-        android:text="Joue en invité!"
+        android:id="@+id/buttonAnonymous"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/buttonAnonymous" />
+        android:background="@android:color/holo_blue_dark"
+        android:text="Joue en invité!" />
+
+    <TextView
+        android:id="@+id/textViewAvertissement"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/background_light"
+        android:layout_marginTop="20dp"
+        android:text="En jouant en invité, tu ne pourras pas enregistrer ton score" />
 </LinearLayout>

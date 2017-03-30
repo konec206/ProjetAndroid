@@ -5,7 +5,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -33,10 +32,16 @@ public class MenuPrincipalActivity extends AppCompatActivity implements View.OnC
         String name = user.getNom();
         String prenom = user.getPrenom();
 
-        ImageButton addition = (ImageButton) findViewById(R.id.imageButtonAddition);
-        ImageButton multiplication = (ImageButton) findViewById(R.id.imageButtonMultiplication);
-        ImageButton histoire = (ImageButton) findViewById(R.id.imageButtonHistoire);
-        ImageButton francais = (ImageButton) findViewById(R.id.imageButtonFrancais);
+        Button addition = (Button) findViewById(R.id.buttonAddition);
+        Button multiplication = (Button) findViewById(R.id.buttonMultiplication);
+        Button division = (Button) findViewById(R.id.buttonDivision);
+
+        Button histoire = (Button) findViewById(R.id.buttonHistoire);
+        Button francais = (Button) findViewById(R.id.buttonFrancais);
+        Button cultureG = (Button) findViewById(R.id.buttonCultureG);
+
+        Button deconnecter = (Button) findViewById(R.id.buttonDeconnexion);
+        Button classement = (Button) findViewById(R.id.buttonClassement);
 
         if (prenom != null && name != null) {
             titre.setText("Bonjour " + prenom + " " + name + "!");
@@ -59,12 +64,9 @@ public class MenuPrincipalActivity extends AppCompatActivity implements View.OnC
                         Question.deleteAll(Question.class);
                         Personne.deleteAll(Personne.class);
 
-                        new Personne("admin", "root").save();
+                        new Personne("admin", "root", 0).save();
 
                         app.getUtil().initDb();
-
-                        String notification = "Database cleared!";
-                        Toast.makeText(getApplicationContext(), notification, Toast.LENGTH_SHORT);
                     }
                 });
             }
@@ -76,6 +78,10 @@ public class MenuPrincipalActivity extends AppCompatActivity implements View.OnC
         multiplication.setOnClickListener(this);
         histoire.setOnClickListener(this);
         francais.setOnClickListener(this);
+        division.setOnClickListener(this);
+        cultureG.setOnClickListener(this);
+        classement.setOnClickListener(this);
+        deconnecter.setOnClickListener(this);
     }
 
     @Override
@@ -83,24 +89,43 @@ public class MenuPrincipalActivity extends AppCompatActivity implements View.OnC
         Intent intent;
         switch (v.getId())
         {
-            case R.id.imageButtonAddition :
+            case R.id.buttonAddition:
                 intent = new Intent(this, ExerciceMathActivity.class);
                 intent.putExtra(EXERCICE_TYPE, "addition");
                 startActivity(intent);
             break;
-            case R.id.imageButtonMultiplication :
+            case R.id.buttonMultiplication :
                 intent = new Intent(this, ExerciceMathActivity.class);
                 intent.putExtra(EXERCICE_TYPE, "multiplication");
                 startActivity(intent);
             break;
-            case R.id.imageButtonFrancais :
+            case R.id.buttonDivision :
+                intent = new Intent(this, ExerciceMathActivity.class);
+                intent.putExtra(EXERCICE_TYPE, "division");
+                startActivity(intent);
+            break;
+            case R.id.buttonFrancais :
                 intent = new Intent(this, ExerciceCultureActivity.class);
                 intent.putExtra(EXERCICE_TYPE, "francais");
                 startActivity(intent);
             break;
-            case R.id.imageButtonHistoire :
+            case R.id.buttonHistoire :
                 intent = new Intent(this, ExerciceCultureActivity.class);
                 intent.putExtra(EXERCICE_TYPE, "histoire");
+                startActivity(intent);
+            break;
+            case R.id.buttonCultureG :
+                intent = new Intent(this, ExerciceCultureActivity.class);
+                intent.putExtra(EXERCICE_TYPE, "cultureG");
+                startActivity(intent);
+            break;
+            case R.id.buttonDeconnexion :
+                intent = new Intent(this, MainActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+            break;
+            case R.id.buttonClassement :
+                intent = new Intent(this, classementActivity.class);
                 startActivity(intent);
             break;
 

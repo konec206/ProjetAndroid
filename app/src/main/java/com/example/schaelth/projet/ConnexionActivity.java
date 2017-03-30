@@ -21,7 +21,7 @@ public class ConnexionActivity extends AppCompatActivity implements View.OnClick
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_connexion_activity);
+        setContentView(R.layout.activity_connexion);
 
         prenom = (EditText) findViewById(R.id.editTextPrenomConnexion);
         nom  = (EditText) findViewById(R.id.editTextNomConnexion);

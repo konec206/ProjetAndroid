@@ -66,6 +66,9 @@ public class ExerciceMath {
             case "multiplication" :
                 ligneCalcul = "" + this.i + " X " + this.j + " = ";
             break;
+            case "division" :
+                ligneCalcul = "" + this.i + " / " + this.j + " = ";
+                break;
             default :
                 ligneCalcul = "Erreur dans la production de la ligne de calcul";
         }
@@ -81,6 +84,9 @@ public class ExerciceMath {
             case "multiplication" :
                 ligneBonneReponse = "" + this.i + " X " + this.j + " = " + this.reponseCorrigee;
             break;
+            case "division" :
+                ligneBonneReponse = "" + this.i + " / " + this.j + " = " + this.reponseCorrigee;
+                break;
             default :
                 ligneBonneReponse = "Erreur dans la production de la ligne de correction";
         }
@@ -101,6 +107,15 @@ public class ExerciceMath {
                 this.i = util.getIndiceAleatoire(10);
                 this.j = util.getIndiceAleatoire(10);
                 this.reponseCorrigee = this.i * this.j;
+                break;
+            case "division" :
+                this.i = util.getIndiceAleatoire(30);
+                this.j = util.getIndiceAleatoire(30);
+                while (this.j == 0 || this.i == 0 || this.i % this.j != 0) {
+                    this.i = util.getIndiceAleatoire(20);
+                    this.j = util.getIndiceAleatoire(20);
+                }
+                this.reponseCorrigee = this.i / this.j;
                 break;
         }
     }

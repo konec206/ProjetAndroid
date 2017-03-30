@@ -1,99 +1,149 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    android:layout_height="match_parent"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layoutFixeMenuPrincipal"
     android:layout_width="match_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:background="@color/colorAccent"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:scrollIndicators="right"
+    android:scrollbarAlwaysDrawVerticalTrack="true"
+    android:scrollbars="vertical"
+    android:weightSum="1">
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:id="@+id/activity_main"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:paddingBottom="@dimen/activity_vertical_margin"
-        android:paddingLeft="@dimen/activity_horizontal_margin"
-        android:paddingRight="@dimen/activity_horizontal_margin"
-        android:paddingTop="@dimen/activity_vertical_margin"
-        android:orientation="vertical"
-        android:weightSum="1">
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/colorAccent"
+        android:layout_marginBottom="50dp">
 
-        <TextView
-            android:text="Bonjour %name%!"
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/activity_main"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/textViewMenuPrincipal1"
-            android:textSize="24sp"
-            android:textAlignment="center"
-            android:textColor="@android:color/black" />
-
-        <TextView
-            android:text="Choisis un exercice :\n "
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/textViewMenuPrincipal2"
-            android:textSize="20sp"
-            android:textAlignment="center" />
-
-        <LinearLayout
-            android:id="@+id/layoutItemMenuPrincipal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:orientation="vertical"
             android:paddingBottom="@dimen/activity_vertical_margin"
             android:paddingLeft="@dimen/activity_horizontal_margin"
             android:paddingRight="@dimen/activity_horizontal_margin"
-            android:orientation="vertical"
-            android:weightSum="1"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:scrollIndicators="right"
-            android:scrollbars="vertical"
-            android:scrollbarAlwaysDrawVerticalTrack="true">
-
-            <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:srcCompat="@drawable/addition"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true"
-                android:id="@+id/imageButtonAddition"
-                android:cropToPadding="false" />
-
-            <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:srcCompat="@drawable/multiplication"
-                android:id="@+id/imageButtonMultiplication"
-                android:layout_below="@+id/imageButtonAddition"
-                android:layout_marginTop="11dp"
-                android:layout_centerHorizontal="true"/>
+            android:paddingTop="@dimen/activity_vertical_margin"
+            android:weightSum="1">
 
             <TextView
-                android:layout_width="wrap_content"
+                android:id="@+id/textViewMenuPrincipal1"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/textView"
-                android:textStyle="normal|bold|italic"
-                android:textSize="24sp"
-                android:text="_________________________"
-                android:layout_below="@+id/imageButtonMultiplication"
-                android:layout_centerHorizontal="true" />
+                android:text="Bonjour %name%!"
+                android:textAlignment="center"
+                android:textColor="@android:color/background_light"
+                android:textSize="24sp" />
 
-            <ImageButton
-                android:layout_width="wrap_content"
+            <TextView
+                android:id="@+id/textViewMenuPrincipal2"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:srcCompat="@drawable/francais"
-                android:layout_below="@+id/textView"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="11dp"
-                android:id="@+id/imageButtonFrancais" />
+                android:text="Choisis un exercice :\n "
+                android:textAlignment="center"
+                android:textColor="@android:color/background_light"
+                android:textSize="20sp" />
 
-            <ImageButton
-                android:layout_width="wrap_content"
+            <Button
+                android:id="@+id/buttonAddition"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:srcCompat="@drawable/histoire"
-                android:layout_marginTop="11dp"
-                android:id="@+id/imageButtonHistoire" />
+                android:layout_marginTop="10dp"
+                android:layout_weight="0.77"
+                android:background="@android:color/holo_orange_dark"
+                android:text="Addition" />
 
+            <Button
+                android:id="@+id/buttonDivision"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@android:color/holo_blue_dark"
+                android:text="Division" />
+
+            <Button
+                android:id="@+id/buttonMultiplication"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@android:color/holo_orange_dark"
+                android:text="Multiplication" />
+
+            <LinearLayout
+                android:id="@+id/layoutItemMenuPrincipal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingBottom="@dimen/activity_vertical_margin"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingRight="@dimen/activity_horizontal_margin"
+                android:scrollIndicators="right"
+                android:scrollbarAlwaysDrawVerticalTrack="true"
+                android:scrollbars="vertical"
+                android:weightSum="1">
+
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/imageButtonMultiplication"
+                    android:layout_centerHorizontal="true"
+                    android:text="_______________________"
+                    android:textColor="@android:color/background_light"
+                    android:textSize="24sp"
+                    android:textStyle="normal|bold|italic" />
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/buttonFrancais"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@android:color/holo_orange_dark"
+                android:text="Français" />
+
+            <Button
+                android:id="@+id/buttonHistoire"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@android:color/holo_blue_dark"
+                android:text="Histoire" />
+
+            <Button
+                android:id="@+id/buttonCultureG"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@android:color/holo_orange_dark"
+                android:text="Culture Générale" />
         </LinearLayout>
+    </ScrollView>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-50dp"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/buttonClassement"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Afficher le classement" />
+        <Button
+            android:id="@+id/buttonDeconnexion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Se déconnecter" />
     </LinearLayout>
-</ScrollView>
+
+</LinearLayout>

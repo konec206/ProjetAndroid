@@ -39,4 +39,10 @@ public class ExerciceCulture {
         }
         questions = listeQuestionsAlea;
     }
+
+    public String generateBonneReponse(String question) {
+        List<Question> questionBD = Question.find(Question.class, "question = ?", question);
+
+        return "" + "Dommage tu t'es trompé, la bonne réponse était : " + questionBD.get(0).getBonneReponse();
+    }
 }

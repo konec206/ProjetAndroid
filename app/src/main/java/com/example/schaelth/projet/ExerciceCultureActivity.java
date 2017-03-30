@@ -1,6 +1,7 @@
 package com.example.schaelth.projet;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -28,6 +29,8 @@ public class ExerciceCultureActivity extends AppCompatActivity implements View.O
     private int bonneReponse = 0;
     private int mauvaiseReponse = 0;
 
+    private TextView message;
+
     public static String ACTIVITY_RESULTAT_BONNE_REPONSE = "resultat_bonne_rep";
     public static String ACTIVITY_RESULTAT_MAUVAISE_REPONSE = "resultat_mauvaise_rep";
 
@@ -37,6 +40,8 @@ public class ExerciceCultureActivity extends AppCompatActivity implements View.O
         setContentView(R.layout.activity_exercice_culture);
 
         typeExercice = getIntent().getStringExtra(MenuPrincipalActivity.EXERCICE_TYPE);
+        message = (TextView) findViewById(R.id.textViewBonneReponseCulture);
+        message.setVisibility(View.INVISIBLE);
 
         textViewQuestion = (TextView) findViewById(R.id.textViewQuestionHistoire);
         reponse1 = (RadioButton) findViewById(R.id.radioButtonReponseHistoire1);
@@ -72,7 +77,13 @@ public class ExerciceCultureActivity extends AppCompatActivity implements View.O
         }
         if (reponseUtil.equals(question.getBonneReponse())) {
             bonneReponse++;
+            message.setText("Bravo tu as trouvé la bonne réponse!");
+            message.setVisibility(View.VISIBLE);
+            message.setTextColor(Color.GREEN);
         } else {
+            message.setText(exerciceHistoire.generateBonneReponse(question.getQuestion()));
+            message.setVisibility(View.VISIBLE);
+            message.setTextColor(Color.RED);
             mauvaiseReponse++;
         }
 
